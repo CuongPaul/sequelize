@@ -1,45 +1,23 @@
-## Simple CRUD Express.js Featuring Sequelize ORM
+# Simple CRUD with NodeJS-ExpressJS & MySQL-Sequelize
 
-Basic simple example CRUD (Create,Read,Update,Delete) on Nodejs using framework Express JS featuring Sequelize ORM with database MySQL.
+## Setup and run project
 
-![screenshot 1](https://raw.githubusercontent.com/herudi/crud_express_sequelize/master/screenshot_1.png)
+### 1. Clone project: `git clone https://github.com/CuongPaul/sequelize.git`
 
-### 1) Clone project
+### 2. Go to root project: `cd sequelize`
 
-`git clone https://github.com/herudi/crud_express_sequelize.git`
+### 3. Build image: `docker build -t nodejs-mysql-docker .`
 
-### 2) Go to root project
+### 4. Run project: `docker run --rm -v $(pwd):/app -w /app node:13-alpine npm install && docker-compose up`
 
-`cd crud_express_sequelize`
+## Access app container: `docker exec -it app_1 sh`
 
-### 3) Install sequelize-cli --globall
+## Access database container: `docker exec -it db_1 mysql -uroot -p`
 
-`npm install sequelize-cli -g`
+## Creating Database: `npx sequelize-cli db:create`
 
-### 4) Install Package local
+## Migrations: `npx sequelize-cli db:migrate`
 
-`npm install`
+## Seeders: `npx sequelize-cli db:seed:all`
 
-### 5) Config database
-
-change username and password and database_name (if you want). on path /config/config.json
-
-### 6) Creating Database
-
-`sequelize db:create`
-
-### 7) Migrations
-
-`sequelize db:migrate`
-
-### 8) Seeders (if you need dummy data)
-
-`sequelize db:seed:all`
-
-### 9) Running project (Development)
-
-`npm run dev`
-
-You can access via http://localhost:3000/
-
-Good Look :)
+## Stop project: `docker-compose down`

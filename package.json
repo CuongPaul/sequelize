@@ -1,16 +1,16 @@
 {
     "name": "crud_express_sequelize",
     "version": "1.0.0",
-    "description": "Basic simple example sequelize orm with expressjs",
+    "description": "Simple CRUD with NodeJS-ExpressJS & MySQL-Sequelize",
     "main": "index.js",
     "scripts": {
-        "lint": "eslint",
-        "dev": "nodemon index",
-        "start": "node index"
+        "start": "node index.js",
+        "dev": "nodemon index.js"
     },
-    "author": "herudi",
+    "author": "TaCuong",
     "license": "ISC",
     "dependencies": {
+        "dotenv": "^16.0.3",
         "ejs": "^3.0.1",
         "express": "^4.17.1",
         "mysql2": "^2.0.2",

@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+    app:
+        container_name: app_1
+        image: nodejs-mysql-docker
+        volumes:
+            - ./:/app
+        environment:
+            - APP_PORT=${APP_PORT}
+        ports:
+            - ${APP_PORT}:${APP_PORT}
+        restart: unless-stopped
+        depends_on:
+            - db
+
+    db:
+        container_name: db_1
+        image: mysql:5.7
+        volumes:
+            - .docker/data/mysql:/data/mysql
+        environment:
+            - MYSQL_DATABASE=${DB_NAME}
+            - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+        ports:
+            - ${DB_PORT}:${DB_PORT}
+        restart: unless-stopped
